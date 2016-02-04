@@ -5,7 +5,7 @@ First of all, install Docker: https://docs.docker.com/installation/windows/ and 
 Build image:
 
 ```
-$ git clone https://github.com/dmkurilov/docker-kivy-pricise.git
+$ git clone https://github.com/Teketel/docker-kivy-pricise.git
 $ cd docker-kivy-precise
 $ sudo docker build -t kivy:v1 .
 ```
