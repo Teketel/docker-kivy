@@ -45,5 +45,7 @@ RUN     cd pygame && python2.7 setup.py build && python2.7 setup.py install && c
 # Install buildozer
 pip install --upgrade buildozer
 
+# Install buildozer android target dependencies
+apt-get install -y build-essential ccache git lib32stdc++6 lib32z1 lib32z1-dev python2.7 python2.7-dev openjdk-7-jdk unzip zlib1g-dev
 # Install kivy
 pip install kivy
