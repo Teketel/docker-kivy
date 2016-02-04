@@ -1,13 +1,5 @@
 # kivy&buildozer android with python 2.7 
 
-# From Android Development Environment. 
-# Contains: 
-#   OpenJDK 7
-#   Android SDK r22.3
-#   Android NDK r9b
-#   Ant 1.9.2
-#   Maven 3.1.1
-#   Gradle 1.9
 FROM    ubuntu
 
 # Add i386 architecture
@@ -47,5 +39,6 @@ pip install --upgrade buildozer
 
 # Install buildozer android target dependencies
 apt-get install -y build-essential ccache git lib32stdc++6 lib32z1 lib32z1-dev python2.7 python2.7-dev openjdk-7-jdk unzip zlib1g-dev
+
 # Install kivy
 pip install kivy
