@@ -1,6 +1,14 @@
-# kivy with python 2.7 on precise
+# kivy&buildozer android with python 2.7 
 
-FROM    ubuntu:precise
+# From Android Development Environment. 
+# Contains: 
+#   OpenJDK 7
+#   Android SDK r22.3
+#   Android NDK r9b
+#   Ant 1.9.2
+#   Maven 3.1.1
+#   Gradle 1.9
+FROM    ubuntu
 
 # Add i386 architecture
 dpkg --add-architecture i386
@@ -10,12 +18,11 @@ RUN     apt-get -y update && apt-get -y upgrade
 
 # Install necessary system packages
 RUN     apt-get install -y build-essential mercurial git python2.7 \
-                           python-setuptools python-dev ffmpeg \
+                           python-setuptools python-dev \
                            libsdl-image1.2-dev libsdl-mixer1.2-dev \
                            libsdl-ttf2.0-dev libsmpeg-dev libsdl1.2-dev \
                            libportmidi-dev libswscale-dev libavformat-dev \
-                           libavcodec-dev zlib1g-dev wget curl mc \
-                           openssh-server telnet
+                           libavcodec-dev zlib1g-dev wget curl mc
 
 # Bootstrap a current Python environment
 RUN     apt-get remove --purge -y python-virtualenv python-pip
@@ -35,7 +42,8 @@ RUN     apt-get remove --purge python-pygame
 RUN     hg clone https://bitbucket.org/pygame/pygame
 RUN     cd pygame && python2.7 setup.py build && python2.7 setup.py install && cd .. && rm -rf pygame
 
-# Configure ssh server
-RUN     apt-get install -y openssh-server telnet
-RUN     mkdir /var/run/sshd
-RUN     echo 'root:supersecret' | chpasswd
+# Install buildozer
+pip install --upgrade buildozer
+
+# Install kivy
+pip install kivy
